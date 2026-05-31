@@ -1,122 +1,100 @@
-2026-05-31 12:40:56 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 12:41:45 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 13:03:38 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 13:04:02 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 13:04:39 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 13:17:09 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 13:17:40 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 13:18:00 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 13:37:24 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 13:38:13 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 14:01:50 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 14:01:50 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 14:02:28 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 14:09:50 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 14:09:50 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 14:11:49 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 14:11:49 | log | [logger.py:log] Response parsed — model: nvidia/nemotron-3-super-120b-a12b-20230311:free | tokens: 4163 | variations: 3
-2026-05-31 14:11:49 | log | [logger.py:log] JSON saved → output\cinematic_indian_tantra_music.json (3407 bytes)
-2026-05-31 14:13:35 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 14:13:35 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 14:14:03 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 14:14:03 | log | [logger.py:log] Response parsed — model: nvidia/nemotron-3-super-120b-a12b-20230311:free | tokens: 2567 | variations: 2
-2026-05-31 14:17:14 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 14:18:35 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 14:18:35 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 14:19:29 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 14:19:29 | log | [logger.py:log] Response parsed — model: nvidia/nemotron-3-super-120b-a12b-20230311:free | tokens: 3372 | variations: 3
-2026-05-31 14:35:07 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 14:35:07 | log | [logger.py:log] Attempt 1/3 — model: meta-llama/llama-3.3-70b-instruct:free
-2026-05-31 14:35:08 | log | [logger.py:log] Attempt 1 failed for model 'meta-llama/llama-3.3-70b-instruct:free': Provider returned error. Retrying in 2s...
-2026-05-31 14:35:10 | log | [logger.py:log] Attempt 2/3 — model: meta-llama/llama-3.3-70b-instruct:free
-2026-05-31 14:35:10 | log | [logger.py:log] Attempt 2 failed for model 'meta-llama/llama-3.3-70b-instruct:free': Provider returned error. Retrying in 4s...
-2026-05-31 14:35:14 | log | [logger.py:log] Attempt 3/3 — model: meta-llama/llama-3.3-70b-instruct:free
-2026-05-31 14:35:16 | log | [logger.py:log] Attempt 3 failed for model 'meta-llama/llama-3.3-70b-instruct:free': Provider returned error. Retrying in 8s...
-2026-05-31 14:35:24 | log | [logger.py:log] Primary model 'meta-llama/llama-3.3-70b-instruct:free' exhausted all retries. Switching to fallback 'google/gemma-4-31b-it:free'.
-
-========== APPLICATION ERROR ==========
-Message          : Model 'meta-llama/llama-3.3-70b-instruct:free' failed after 3 retries.
-Exception Type   : TooManyRequestsResponseError
-Original Error   : Provider returned error
-File             : Unknown
-Function         : Unknown
-Line             : -1
-Context          : {'model': 'meta-llama/llama-3.3-70b-instruct:free', 'max_retries': 3}
----------------------------------------
-NoneType: None
-=======================================
-
-2026-05-31 14:35:24 | log | [logger.py:log] Attempt 1/3 — model: google/gemma-4-31b-it:free
-2026-05-31 14:35:26 | log | [logger.py:log] Attempt 1 failed for model 'google/gemma-4-31b-it:free': Provider returned error. Retrying in 2s...
-2026-05-31 14:35:28 | log | [logger.py:log] Attempt 2/3 — model: google/gemma-4-31b-it:free
-2026-05-31 14:35:39 | log | [logger.py:log] Model 'google/gemma-4-31b-it:free' responded successfully on attempt 2.
-2026-05-31 14:35:39 | log | [logger.py:log] Response parsed — model: google/gemma-4-31b-it-20260402:free | tokens: 2024 | variations: 3
-2026-05-31 14:53:14 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 14:53:14 | log | [logger.py:log] Starting pipeline — n=5, batch_size=2, total_batches=3
-2026-05-31 14:53:14 | log | [logger.py:log] Batch 1/3 — requesting 2 variation(s) starting at index 1
-2026-05-31 14:53:14 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 14:53:57 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 14:53:57 | log | [logger.py:log] Starting pipeline — n=5, batch_size=2, total_batches=3
-2026-05-31 14:53:57 | log | [logger.py:log] Batch 1/3 — requesting 2 variation(s) starting at index 1
-2026-05-31 14:53:57 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 14:54:37 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 14:54:37 | log | [logger.py:log] Batch starting at index 1 → received 2 variation(s).
-2026-05-31 14:54:37 | log | [logger.py:log] Batch 2/3 — requesting 2 variation(s) starting at index 3
-2026-05-31 14:54:37 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 14:56:05 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 14:56:05 | log | [logger.py:log] Batch starting at index 3 → received 2 variation(s).
-2026-05-31 14:56:05 | log | [logger.py:log] Batch 3/3 — requesting 1 variation(s) starting at index 5
-2026-05-31 14:56:05 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 14:56:28 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 14:56:28 | log | [logger.py:log] Batch starting at index 5 → received 1 variation(s).
-2026-05-31 14:56:28 | log | [logger.py:log] Pipeline complete — 5/5 variations collected.
-2026-05-31 14:56:28 | log | [logger.py:log] Displayed JSON | title: 'cinematic — Indian tantra music' | 5311 chars
-2026-05-31 14:56:28 | log | [logger.py:log] JSON saved → output\cinematic_indian_tantra_music.json (5452 bytes)
-2026-05-31 14:56:28 | log | [logger.py:log] Displayed JSON | title: 'cinematic — Indian tantra music' | 5452 chars
-2026-05-31 14:58:14 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 14:58:14 | log | [logger.py:log] Starting pipeline — n=5, batch_size=2, total_batches=3
-2026-05-31 14:58:14 | log | [logger.py:log] Batch 1/3 — requesting 2 variation(s) starting at index 1
-2026-05-31 14:58:14 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 14:59:16 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 14:59:16 | log | [logger.py:log] Batch starting at index 1 → received 2 variation(s).
-2026-05-31 14:59:16 | log | [logger.py:log] Batch 2/3 — requesting 2 variation(s) starting at index 3
-2026-05-31 14:59:16 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 15:00:06 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 15:00:06 | log | [logger.py:log] Batch starting at index 3 → received 2 variation(s).
-2026-05-31 15:00:06 | log | [logger.py:log] Batch 3/3 — requesting 1 variation(s) starting at index 5
-2026-05-31 15:00:06 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 15:00:45 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 15:00:45 | log | [logger.py:log] Batch starting at index 5 → received 1 variation(s).
-2026-05-31 15:00:45 | log | [logger.py:log] Pipeline complete — 5/5 variations collected.
-2026-05-31 15:00:45 | log | [logger.py:log] Displayed JSON | title: 'cinematic — Indian tantra music' | 5330 chars
-2026-05-31 15:00:45 | log | [logger.py:log] JSON saved → output\cinematic_indian_tantra_music.json (5330 bytes)
-2026-05-31 15:09:28 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 15:09:28 | log | [logger.py:log] Starting pipeline — n=10, batch_size=2, total_batches=5
-2026-05-31 15:09:28 | log | [logger.py:log] Batch 1/5 — requesting 2 variation(s) starting at index 1
-2026-05-31 15:09:28 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 15:10:12 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
-2026-05-31 15:10:12 | log | [logger.py:log] Starting pipeline — n=10, batch_size=2, total_batches=5
-2026-05-31 15:10:12 | log | [logger.py:log] Batch 1/5 — requesting 2 variation(s) starting at index 1
-2026-05-31 15:10:12 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 15:12:06 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 15:12:06 | log | [logger.py:log] Batch starting at index 1 → received 2 variation(s).
-2026-05-31 15:12:06 | log | [logger.py:log] Batch 2/5 — requesting 2 variation(s) starting at index 3
-2026-05-31 15:12:06 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 15:12:57 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 15:12:57 | log | [logger.py:log] Batch starting at index 3 → received 2 variation(s).
-2026-05-31 15:12:57 | log | [logger.py:log] Batch 3/5 — requesting 2 variation(s) starting at index 5
-2026-05-31 15:12:57 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 15:14:23 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 15:14:23 | log | [logger.py:log] Batch starting at index 5 → received 2 variation(s).
-2026-05-31 15:14:23 | log | [logger.py:log] Batch 4/5 — requesting 2 variation(s) starting at index 7
-2026-05-31 15:14:23 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 15:15:26 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 15:15:26 | log | [logger.py:log] Batch starting at index 7 → received 2 variation(s).
-2026-05-31 15:15:26 | log | [logger.py:log] Batch 5/5 — requesting 2 variation(s) starting at index 9
-2026-05-31 15:15:26 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
-2026-05-31 15:15:59 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
-2026-05-31 15:15:59 | log | [logger.py:log] Batch starting at index 9 → received 2 variation(s).
-2026-05-31 15:15:59 | log | [logger.py:log] Pipeline complete — 10/10 variations collected.
-2026-05-31 15:15:59 | log | [logger.py:log] Displayed JSON | title: 'lo_fi — orchestral cinematic music with dynamic range immersive sound effects.' | 8019 chars
-2026-05-31 15:15:59 | log | [logger.py:log] JSON saved → output\lo_fi_orchestral_cinematic_music_with_dynamic_.json (8162 bytes)
-2026-05-31 15:15:59 | log | [logger.py:log] Displayed JSON | title: 'lo_fi — orchestral cinematic music with dynamic range immersive sound effects.' | 8162 chars
+2026-05-31 18:36:30 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
+2026-05-31 18:36:30 | log | [logger.py:log] Starting pipeline — n=3, batch_size=2, total_batches=2
+2026-05-31 18:36:30 | log | [logger.py:log] Batch 1/2 — requesting 2 variation(s) starting at index 1
+2026-05-31 18:36:30 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
+2026-05-31 18:37:10 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
+2026-05-31 18:37:10 | log | [logger.py:log] Batch starting at index 1 → received 2 variation(s).
+2026-05-31 18:37:10 | log | [logger.py:log] Batch 2/2 — requesting 1 variation(s) starting at index 3
+2026-05-31 18:37:10 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
+2026-05-31 18:37:29 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
+2026-05-31 18:37:29 | log | [logger.py:log] Batch starting at index 3 → received 1 variation(s).
+2026-05-31 18:37:29 | log | [logger.py:log] Pipeline complete — 3/3 variations collected.
+2026-05-31 18:37:29 | log | [logger.py:log] Displayed JSON | title: 'dynamic_range — Epic cinematic battle song with deep bass and raging drums' | 2866 chars
+2026-05-31 18:37:29 | log | [logger.py:log] JSON saved → output\dynamic_range_epic_cinematic_battle_song_with_deep_bas.json (3007 bytes)
+2026-05-31 18:37:29 | log | [logger.py:log] Displayed JSON | title: 'dynamic_range — Epic cinematic battle song with deep bass and raging drums' | 3007 chars
+2026-05-31 18:37:29 | log | [logger.py:log] Music generation started — run_id: 2026-05-31_18-37-29 | variations: 3
+2026-05-31 18:37:29 | log | [logger.py:log] Output directory created → artifacts\2026-05-31_18-37-29 | Generating 3 variation(s) concurrently.
+2026-05-31 18:37:29 | log | [logger.py:log] Generating variation 1 — model: lyria-3-pro-preview
+2026-05-31 18:37:29 | log | [logger.py:log] Generating variation 2 — model: lyria-3-pro-preview
+2026-05-31 18:37:29 | log | [logger.py:log] Generating variation 3 — model: lyria-3-pro-preview
+2026-05-31 18:38:20 | log | [logger.py:log] Variation 2 saved → artifacts\2026-05-31_18-37-29\variation_2.wav (3,155,188 bytes)
+2026-05-31 18:38:22 | log | [logger.py:log] Variation 1 saved → artifacts\2026-05-31_18-37-29\variation_1.wav (4,133,840 bytes)
+2026-05-31 18:38:23 | log | [logger.py:log] Variation 3 saved → artifacts\2026-05-31_18-37-29\variation_3.wav (3,515,051 bytes)
+2026-05-31 18:38:23 | log | [logger.py:log] All 3/3 variations generated successfully.
+2026-05-31 18:38:23 | log | [logger.py:log] JSON saved → artifacts\2026-05-31_18-37-29\manifest.json (3260 bytes)
+2026-05-31 18:38:23 | log | [logger.py:log] Manifest saved → artifacts\2026-05-31_18-37-29/manifest.json
+2026-05-31 19:16:51 | log | [logger.py:log] JSON file not found: artifacts6-05-31_18-37-29\manifest.json
+2026-05-31 19:17:29 | log | [logger.py:log] Successfully loaded JSON file: artifacts\2026-05-31_18-37-29\manifest.json
+2026-05-31 19:17:29 | log | [logger.py:log] Mode: direct concatenation (no gap, no crossfade).
+2026-05-31 19:17:29 | log | [logger.py:log] Loading 3 track(s) from artifacts\2026-05-31_18-37-29 ...
+2026-05-31 19:17:29 | log | [logger.py:log]   Loading → artifacts\2026-05-31_18-37-29\variation_1.wav
+2026-05-31 19:24:01 | log | [logger.py:log] Successfully loaded JSON file: artifacts\2026-05-31_18-37-29\manifest.json
+2026-05-31 19:24:01 | log | [logger.py:log] Mode: direct concatenation (no gap, no crossfade).
+2026-05-31 19:24:01 | log | [logger.py:log] Loading 3 track(s) from artifacts\2026-05-31_18-37-29 ...
+2026-05-31 19:24:01 | log | [logger.py:log]   Loading → artifacts\2026-05-31_18-37-29\variation_1.wav
+2026-05-31 19:25:36 | log | [logger.py:log] Successfully loaded JSON file: artifacts\2026-05-31_18-37-29\manifest.json
+2026-05-31 19:25:36 | log | [logger.py:log] Mode: direct concatenation (no gap, no crossfade).
+2026-05-31 19:25:36 | log | [logger.py:log] Loading 3 track(s) from artifacts\2026-05-31_18-37-29 ...
+2026-05-31 19:25:36 | log | [logger.py:log]   Loading → artifacts\2026-05-31_18-37-29\variation_1.wav
+2026-05-31 19:25:46 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
+2026-05-31 19:25:46 | log | [logger.py:log] Starting pipeline — n=3, batch_size=2, total_batches=2
+2026-05-31 19:25:46 | log | [logger.py:log] Batch 1/2 — requesting 2 variation(s) starting at index 1
+2026-05-31 19:25:46 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
+2026-05-31 19:27:42 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
+2026-05-31 19:27:42 | log | [logger.py:log] Batch starting at index 1 → received 2 variation(s).
+2026-05-31 19:27:42 | log | [logger.py:log] Batch 2/2 — requesting 1 variation(s) starting at index 3
+2026-05-31 19:27:42 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
+2026-05-31 19:28:40 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
+2026-05-31 19:28:40 | log | [logger.py:log] Batch starting at index 3 → received 1 variation(s).
+2026-05-31 19:28:40 | log | [logger.py:log] Pipeline complete — 3/3 variations collected.
+2026-05-31 19:28:40 | log | [logger.py:log] Displayed JSON | title: 'indian_classical — Epic cinematic battle song with deep bass and raging drums' | 2899 chars
+2026-05-31 19:28:40 | log | [logger.py:log] JSON saved → output\indian_classical_epic_cinematic_battle_song_with_deep_bas.json (3040 bytes)
+2026-05-31 19:28:40 | log | [logger.py:log] Music generation started — run_id: 2026-05-31_19-28-40 | variations: 3
+2026-05-31 19:28:40 | log | [logger.py:log] Output directory created → artifacts\2026-05-31_19-28-40 | Generating 3 variation(s) concurrently.
+2026-05-31 19:28:40 | log | [logger.py:log] Generating variation 1 — model: lyria-3-pro-preview
+2026-05-31 19:28:40 | log | [logger.py:log] Generating variation 2 — model: lyria-3-pro-preview
+2026-05-31 19:28:40 | log | [logger.py:log] Generating variation 3 — model: lyria-3-pro-preview
+2026-05-31 19:31:06 | log | [logger.py:log] Variation 2 saved → artifacts\2026-05-31_19-28-40\variation_2.mp3 (4,223,492 bytes)
+2026-05-31 19:31:54 | log | [logger.py:log] Variation 1 failed: RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read)
+2026-05-31 19:31:54 | log | [logger.py:log] Variation 3 failed: RemoteProtocolError: peer closed connection without sending complete message body (incomplete chunked read)
+2026-05-31 19:31:54 | log | [logger.py:log] Pipeline finished with 2 failure(s) — 1/3 succeeded.
+2026-05-31 19:31:54 | log | [logger.py:log] JSON saved → artifacts\2026-05-31_19-28-40\manifest.json (3476 bytes)
+2026-05-31 19:31:54 | log | [logger.py:log] Manifest saved → artifacts\2026-05-31_19-28-40/manifest.json
+2026-05-31 19:31:54 | log | [logger.py:log] Mode: direct concatenation (no gap, no crossfade).
+2026-05-31 19:31:54 | log | [logger.py:log] 2 variation(s) skipped (failed status or missing file).
+2026-05-31 22:03:25 | log | [logger.py:log] Successfully loaded JSON file: src\prompts\style_prompts.json
+2026-05-31 22:03:25 | log | [logger.py:log] Starting pipeline — n=3, batch_size=2, total_batches=2
+2026-05-31 22:03:25 | log | [logger.py:log] Batch 1/2 — requesting 2 variation(s) starting at index 1
+2026-05-31 22:03:25 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
+2026-05-31 22:04:17 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
+2026-05-31 22:04:17 | log | [logger.py:log] Batch starting at index 1 → received 2 variation(s).
+2026-05-31 22:04:17 | log | [logger.py:log] Batch 2/2 — requesting 1 variation(s) starting at index 3
+2026-05-31 22:04:17 | log | [logger.py:log] Attempt 1/3 — model: nvidia/nemotron-3-super-120b-a12b:free
+2026-05-31 22:05:07 | log | [logger.py:log] Model 'nvidia/nemotron-3-super-120b-a12b:free' responded successfully on attempt 1.
+2026-05-31 22:05:07 | log | [logger.py:log] Batch starting at index 3 → received 1 variation(s).
+2026-05-31 22:05:07 | log | [logger.py:log] Pipeline complete — 3/3 variations collected.
+2026-05-31 22:05:07 | log | [logger.py:log] Displayed JSON | title: 'indian_classical — Epic cinematic battle song with deep bass and raging drums' | 3143 chars
+2026-05-31 22:05:07 | log | [logger.py:log] JSON saved → output\indian_classical_epic_cinematic_battle_song_with_deep_bas.json (3284 bytes)
+2026-05-31 22:05:07 | log | [logger.py:log] Music generation started — run_id: 2026-05-31_22-05-07 | variations: 3
+2026-05-31 22:05:07 | log | [logger.py:log] Output directory created → artifacts\2026-05-31_22-05-07 | Generating 3 variation(s) concurrently.
+2026-05-31 22:05:07 | log | [logger.py:log] Generating variation 1 — model: lyria-3-pro-preview
+2026-05-31 22:05:07 | log | [logger.py:log] Generating variation 2 — model: lyria-3-pro-preview
+2026-05-31 22:05:07 | log | [logger.py:log] Generating variation 3 — model: lyria-3-pro-preview
+2026-05-31 22:05:46 | log | [logger.py:log] Variation 1 saved → artifacts\2026-05-31_22-05-07\variation_1.mp3 (3,938,237 bytes)
+2026-05-31 22:05:53 | log | [logger.py:log] Variation 3 saved → artifacts\2026-05-31_22-05-07\variation_3.mp3 (4,144,499 bytes)
+2026-05-31 22:05:59 | log | [logger.py:log] Variation 2 saved → artifacts\2026-05-31_22-05-07\variation_2.mp3 (4,333,835 bytes)
+2026-05-31 22:05:59 | log | [logger.py:log] All 3/3 variations generated successfully.
+2026-05-31 22:05:59 | log | [logger.py:log] JSON saved → artifacts\2026-05-31_22-05-07\manifest.json (3537 bytes)
+2026-05-31 22:05:59 | log | [logger.py:log] Manifest saved → artifacts\2026-05-31_22-05-07/manifest.json
+2026-05-31 22:05:59 | log | [logger.py:log] Mode: direct concatenation (no gap, no crossfade).
+2026-05-31 22:05:59 | log | [logger.py:log] Loading 3 track(s) from artifacts\2026-05-31_22-05-07 ...
+2026-05-31 22:05:59 | log | [logger.py:log]   Loading → artifacts\2026-05-31_22-05-07\variation_1.mp3
+2026-05-31 22:06:01 | log | [logger.py:log]   Loaded  → variation_1.mp3 (163.8s, 44100Hz, 2ch)
+2026-05-31 22:06:01 | log | [logger.py:log]   Loading → artifacts\2026-05-31_22-05-07\variation_2.mp3
+2026-05-31 22:06:02 | log | [logger.py:log]   Loaded  → variation_2.mp3 (180.3s, 44100Hz, 2ch)
+2026-05-31 22:06:02 | log | [logger.py:log]   Loading → artifacts\2026-05-31_22-05-07\variation_3.mp3
+2026-05-31 22:06:02 | log | [logger.py:log]   Loaded  → variation_3.mp3 (172.4s, 44100Hz, 2ch)
+2026-05-31 22:06:02 | log | [logger.py:log] Stitching tracks ...
+2026-05-31 22:06:08 | log | [logger.py:log] Stitched file saved → artifacts\2026-05-31_22-05-07\stitched_output.mp3 (duration: 516.6s)
+2026-05-31 22:06:08 | log | [logger.py:log] JSON saved → artifacts\2026-05-31_22-05-07\manifest.json (3777 bytes)
+2026-05-31 22:06:08 | log | [logger.py:log] Manifest updated → artifacts\2026-05-31_22-05-07/manifest.json

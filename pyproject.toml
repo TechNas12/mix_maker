@@ -8,6 +8,7 @@ dependencies = [
     "google-genai>=2.7.0",
     "openai>=2.38.0",
     "openrouter>=0.9.1",
+    "pydub>=0.25.1",
     "python-dotenv>=1.2.2",
     "rich>=15.0.0",
 ]
