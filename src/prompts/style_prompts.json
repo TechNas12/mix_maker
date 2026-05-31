@@ -1,0 +1,62 @@
+[
+  {
+    "id": "cinematic",
+    "label": "Cinematic",
+    "description": "Large-scale orchestral music designed to evoke powerful emotion and visual storytelling, as heard in film scores and trailers.",
+    "directives": "Use a full orchestral palette including strings, brass, woodwinds, choir, and epic percussion. Build tension and release through dynamic swells — start quiet and let the piece breathe before unleashing its full power. Include a strong thematic motif that recurs and transforms. Use layered reverb and a wide stereo mix to fill the space. Tempo should range between 55–90 BPM for emotional depth, or 130–160 BPM for action. Ground the emotional arc in a clear narrative journey: establish, build, climax, resolve. Reference sonic touchstones like Hans Zimmer, Ennio Morricone, or John Williams where appropriate. Avoid percussion-less textures — keep rhythmic momentum even in soft passages with subtle timpani or taiko rolls."
+  },
+  {
+    "id": "balanced",
+    "label": "Balanced",
+    "description": "A well-rounded, versatile musical style that blends genres and tones evenly, suitable for a broad audience and a wide range of contexts.",
+    "directives": "Balance acoustic and electronic elements — no single instrument or texture should dominate. Keep the dynamic range moderate, neither too loud nor too soft, maintaining consistent energy throughout. Use a clean, polished production style with clear separation between instruments in the mix. Tempo should feel natural and comfortable, typically 90–120 BPM. Blend melodic and harmonic richness without leaning into genre extremes. Avoid jarring transitions; instead, guide the listener smoothly through sections. The piece should feel equally at home as background music, focus music, or casual listening. Aim for emotional neutrality with warmth — pleasant, engaging, never overwhelming."
+  },
+  {
+    "id": "dynamic_range",
+    "label": "Dynamic Range",
+    "description": "Music built on extreme contrast between soft and loud passages, using silence and volume as expressive tools.",
+    "directives": "Prioritize dramatic contrast between pianissimo and fortissimo passages — the difference should feel stark and intentional. Use silence and near-silence as musical tools; let the absence of sound build anticipation. Build pieces in arcs that move from delicate, intimate textures to explosive, full-band climaxes. Avoid heavy compression or limiting in the mix — preserve natural dynamics. Include at least one moment where the entire arrangement drops to a single instrument or near-silence before a powerful re-entry. Layering should be additive: begin sparse and accumulate instruments or voices toward the peak. Ensure the loudest sections feel earned, not sudden. Use this style for emotionally intense, high-impact listening experiences."
+  },
+  {
+    "id": "jazz",
+    "label": "Jazz",
+    "description": "Rooted in improvisation, swing rhythm, and complex harmony, jazz spans from intimate small combos to sprawling big bands.",
+    "directives": "Build around a jazz ensemble — choose from piano trio, quartet, quintet, or big band depending on the energy needed. Use swing feel and syncopated rhythm as the rhythmic foundation; the groove must breathe and feel human. Incorporate jazz chord extensions: 7ths, 9ths, 11ths, and 13ths — avoid plain triads. Leave space in the arrangement for implied improvisation, even if not explicitly stated. Reference specific eras or sub-genres where appropriate: bebop, hard bop, cool jazz, jazz fusion, or contemporary jazz. Walking bass lines should anchor the harmony while the piano comps sparsely. Drums should swing with a light touch — brushes for slower moods, sticks for energy. Capture an intimate, club-like acoustic feel with warm analog tones and slight room ambiance."
+  },
+  {
+    "id": "indian_classical",
+    "label": "Indian Classical",
+    "description": "Deeply meditative and structured music rooted in the raga system, featuring microtonal ornamentation and rhythmic cycles (tala).",
+    "directives": "Ground the piece in a specific raga or raga-inspired scale — reference the time of day or emotional rasa associated with it (e.g., Bhairavi for morning melancholy, Yaman for evening romance). Use sitar, sarod, bansuri (bamboo flute), or sarangi as primary melodic instruments. Include a tabla or pakhawaj pattern based on a defined tala cycle (e.g., teentaal of 16 beats, rupak of 7 beats). Structure the piece in traditional stages if possible: alap (slow, free-form exploration), jod (rhythmic introduction), jhala (fast, intense climax), or at minimum reflect this arc. Use drone elements — tanpura or harmonium — as a continuous tonal foundation. Incorporate meend (glides between notes), gamak (oscillations), and kan (grace notes) in melodic phrasing. The emotional register should be devotional, contemplative, or deeply expressive. Avoid Western chord progressions — harmonic movement should emerge from the raga's characteristic phrases."
+  },
+  {
+    "id": "pop",
+    "label": "Pop Music",
+    "description": "Catchy, polished, and hook-driven music designed for broad appeal, with clean production and memorable melodies.",
+    "directives": "Lead with a strong, singable melodic hook that appears within the first 30 seconds. Structure the piece with clearly defined sections — verse, pre-chorus, chorus, bridge — even if instrumental. Keep the production modern and polished: use layered synths, programmed or live drums, and clean electric or acoustic guitar. Tempo should be energetic and radio-friendly, typically 100–130 BPM. Use common pop chord progressions (I-V-vi-IV or similar) to maintain approachability. The mix should be bright, punchy, and loud with careful attention to low-end clarity. Incorporate subtle production details: sidechained pads, airy vocal chops, or textural risers between sections. The overall feel should be optimistic, feel-good, and emotionally accessible. Think current Top 40 sensibility with production quality fit for streaming platforms."
+  },
+  {
+    "id": "lo_fi",
+    "label": "Lo-Fi / Chill Beats",
+    "description": "Relaxed, nostalgic music with intentional imperfections — vinyl crackle, warm tape hiss, and laid-back grooves designed for studying or unwinding.",
+    "directives": "Use a slow, lazy hip-hop or boom-bap drum pattern at 70–90 BPM — slightly swung, never quantized perfectly. Layer a warm, slightly detuned piano or Rhodes electric piano as the primary melodic voice. Include vinyl crackle, tape saturation, and soft background ambiance (rain, café sounds, distant street noise) to create texture and nostalgia. Keep the arrangement sparse — bass, drums, keys, and one optional melodic layer is ideal. Use heavy low-pass filtering on drums and pads to create a muffled, warm sonic character. Avoid bright or harsh frequencies. Chord progressions should be jazzy and unresolved — minor 7ths and major 9ths convey emotional complexity without tension. The piece should loop seamlessly and feel like it could play on repeat without fatigue. The mood is peaceful, introspective, and slightly nostalgic."
+  },
+  {
+    "id": "electronic_ambient",
+    "label": "Electronic / Ambient",
+    "description": "Atmosphere-first electronic music built on synthesizers, pads, and evolving textures — designed for immersion and emotional depth.",
+    "directives": "Prioritize texture, space, and atmosphere over melody or rhythm. Use synthesizers, pad layers, and evolving drones as the primary sonic material — Moog, Juno-style pads, or granular synthesis textures work well. Incorporate slow LFO modulation, filter sweeps, and gentle pitch drift to create organic movement in otherwise static sounds. Reverb and delay should be long and lush — the piece should feel like it exists in a vast, open space. Rhythm, if present, should be subtle: soft kick patterns, shaker loops, or off-grid percussion textures rather than driving beats. Tempo is secondary — the focus is on the evolution of sound over time. Reference the aesthetics of Brian Eno, Boards of Canada, or Aphex Twin ambient works. The emotional register should be contemplative, ethereal, or otherworldly. Let the piece breathe and evolve slowly — sudden changes are discouraged."
+  },
+  {
+    "id": "afrobeats",
+    "label": "Afrobeats",
+    "description": "High-energy, groove-driven West African-influenced music blending traditional rhythms with modern pop and R&B production.",
+    "directives": "Build the foundation on a syncopated, polyrhythmic drum pattern that fuses traditional West African percussion (djembe, talking drum feel) with modern 808 kicks and hi-hats. The tempo should be uplifting and dance-floor-ready, typically 100–115 BPM. Layer melodic elements using electric guitar with a bright, percussive tone, bass guitar with a bouncy feel, and keyboard stabs or marimba-like tones. Incorporate call-and-response patterns between melodic instruments. Afrobeats production should be warm and slightly compressed — punchy but not aggressive. Use melodic percussion fills and shaker patterns to fill rhythmic space. The overall mood should be joyful, celebratory, and communal. Reference the sounds of Burna Boy, Wizkid, or Afrobeats production from Lagos. Include subtle tonal phrases that suggest vocal melody even in instrumental passages."
+  },
+  {
+    "id": "orchestral_epic",
+    "label": "Orchestral Epic / Battle",
+    "description": "Powerful, aggressive orchestral music designed for battle scenes, sports, and high-stakes moments — maximum intensity and drive.",
+    "directives": "Use a massive orchestral and hybrid ensemble: full strings, heavy brass, epic choir, war drums, taiko, and layered electronic percussion. The tempo must be driving and relentless — 130–180 BPM — with a strong, metronomic pulse. Lead melodic lines should be heroic and bold, delivered by horns or unison strings. Choir parts should use wordless vocals or Latin/phonetic chanting to add scale and gravitas. Brass stabs and string ostinatos should lock in tightly with the percussion to create momentum. Use distorted, processed low brass or sub-bass drones to add menace and weight. The dynamic arc should remain consistently powerful — this is not a piece that drops to quiet; it sustains intensity. Production should be massive, compressed, and loud with heavy low-end presence. Reference Audiomachine, Two Steps from Hell, or Hans Zimmer's action-oriented work as sonic benchmarks."
+  }
+]

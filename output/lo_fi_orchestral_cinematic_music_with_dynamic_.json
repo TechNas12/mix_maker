@@ -1,0 +1,53 @@
+{
+  "style_id": "lo_fi",
+  "base_prompt": "orchestral cinematic music with dynamic range immersive sound effects.",
+  "complete": true,
+  "variations": [
+    {
+      "index": 1,
+      "prompt": "A slow, swung boom-bap drum pattern at 78 BPM, slightly off-grid and never quantized, lays the foundation with heavy low-pass filtering for a muffled warm thump. A warm, slightly detuned Rhodes electric piano carries the main melody, wrapped in vinyl crackle, tape saturation, and a soft rain ambiance that evokes a quiet window‑side study session. Sparse arrangement features a rounded bass guitar, the Rhodes, and an optional low‑pass‑filtered orchestral string pad playing jazzy minor‑9th chords that add cinematic depth without brightness. Distant, immersive sound effects — low thunder rolls and faint wind — sit deep in the mix, reinforcing the nostalgic, introspective mood while the progression loops seamlessly."
+    },
+    {
+      "index": 2,
+      "prompt": "A laid‑back hip‑hop groove at 86 BPM with a soft swing, the drums slightly loose and filtered low‑pass to keep them warm and muffled. A warm, slightly detuned upright piano provides the melodic voice, layered with vinyl crackle, tape saturation, and a gentle café ambiance of distant chatter and clinking cups that adds a nostalgic texture. The arrangement stays sparse: a sub‑bass line, the piano, and an optional low‑pass‑filtered French horn pad that hints at orchestral cinematic swells while using jazzy major‑9th to minor‑7th changes for emotional complexity. Immersive sound effects such as a far‑off train whistle and subtle wind chimes sit deep in the mix, creating a peaceful, introspective scene that loops effortlessly without fatigue."
+    },
+    {
+      "index": 3,
+      "prompt": "A lo-fi chill beat at 78 BPM with a swung boom-bap drum loop, low-pass filtered to give a muffled warmth, layered over a slightly detuned Rhodes electric piano playing a jazzy minor 7th progression. Faint orchestral strings swell in the background, processed with tape saturation and subtle reverb to retain cinematic depth while staying soft and nostalgic. Vinyl crackle, soft rain ambiance, and distant café chatter fill the mix, creating an immersive study soundtrack that loops seamlessly. The arrangement stays sparse—drums, bass, keys, and the string pad—allowing dynamic swells to breathe without harshness."
+    },
+    {
+      "index": 4,
+      "prompt": "A downtempo lo-fi groove around 85 BPM featuring a lazy hip-hop drum pattern with soft snare brushes and a warm, filtered kick, complemented by a warm, detuned piano melody that hints at cinematic grandeur. Layered underneath are low-pass filtered orchestral horns and brass hits, rendered with vinyl crackle and tape hiss to evoke a nostalgic film score feel. Light field recordings of a quiet city street at night and gentle wind provide immersive sound effects that sit just beneath the mix. The chord progression uses major 9ths and minor 7ths, unresolved, encouraging a peaceful, introspective mood that can repeat indefinitely."
+    },
+    {
+      "index": 5,
+      "prompt": "A laid-back lo-fi hip-hop beat at 78 BPM with a slightly swung, unquantized drum pattern, featuring a warm, slightly detuned Rhodes electric piano playing a jazzy minor 7th progression layered over a low-pass filtered orchestral string pad that swells subtly to give a cinematic sense of depth. The drums are also low-pass filtered to maintain a muffled, warm character, while vinyl crackle and soft tape saturation run throughout, and a distant rain soundscape provides immersive background texture, enhancing the peaceful, introspective mood. The arrangement stays sparse: mellow bass line, drums, keys, and the string pad as the optional melodic layer, all processed to avoid harsh frequencies. Designed to loop seamlessly, the piece feels like a nostalgic soundtrack to a quiet city night, inviting endless repeat listening."
+    },
+    {
+      "index": 6,
+      "prompt": "A mellow boom-bap groove at 85 BPM with lazy, swung drums and a deep, rounded bass, carrying a simple, detuned piano motif that hints at orchestral grandeur through a faint, reverberated choir pad filtered warmly to sit low in the mix. The drums are likewise low-pass filtered for a soft, muffled feel, complemented by light vinyl crackle and tape haze, plus a subtle café ambiance of distant chatter and clinking cups that creates an immersive yet relaxed soundscape. The chord progression uses unresolved major 9ths and minor 7ths, giving emotional complexity without tension, while the orchestral elements are kept to a single layered texture to maintain the sparse lo-fi aesthetic. Intended to loop perfectly, the track evokes a nostalgic, introspective vibe perfect for studying or unwinding, with a cinematic feel emerging from the immersive background effects."
+    },
+    {
+      "index": 7,
+      "prompt": "A laid-back lo-fi beat at 78 BPM with a slightly swung, unquantized boom-bap drum loop, heavy low-pass filtering giving the kicks and snares a muffled, warm character, layered over a detuned Rhodes electric piano playing a jazzy minor 9 chord progression that loops seamlessly. Faint orchestral strings swell in the background, processed with tape saturation and subtle reverb to add cinematic depth without breaking the chill atmosphere. Vinyl crackle and soft rain ambience sit beneath the mix, while distant city traffic hums provide immersive sound effects. The arrangement stays sparse: bass, drums, keys, and the string pad, creating a peaceful, introspective mood perfect for unwinding."
+    },
+    {
+      "index": 8,
+      "prompt": "A nostalgic lo-fi groove at 85 BPM featuring a lazy, swung hip-hop drum pattern with low-pass filtered percussion, complemented by a warm, slightly detuned piano melody that hints at an orchestral theme, reinterpreted through a lo-fi lens. Light orchestral brass stabs are filtered and drenched in tape hiss, offering dynamic range and immersive sound effects that evoke a cinematic feel while remaining mellow. Café ambience—soft chatter, clinking cups, and distant espresso machine—fills the background alongside gentle vinyl crackle, enhancing the relaxed, studious vibe. The chord progression uses unresolved major 9ths and minor 7ths, looping flawlessly to maintain a peaceful, introspective atmosphere."
+    },
+    {
+      "index": 9,
+      "prompt": "A laid-back boom-bap drum groove at 78 BPM with a gentle swing and soft low-pass filtered kicks and snares sits beneath a warm, slightly detuned Rhodes electric piano playing jazzy minor 7th and major 9th chords that resolve slowly. A deep, rounded bass follows the root notes lightly, while a faint melodic layer of a muted trumpet whispers a nostalgic counter‑melody in the background. Vinyl crackle and tape saturation blanket the mix, complemented by a subtle rain ambiance that patters softly in the far left channel, adding texture without overpowering the groove. The arrangement stays sparse—drums, bass, keys, and the trumpet—creating a muffled, warm sonic character perfect for studying or unwinding, and the piece loops seamlessly with a peaceful, introspective mood."
+    },
+    {
+      "index": 10,
+      "prompt": "A slow‑swinging hip‑hop beat at 86 BPM features loosely quantized kick and snare with heavy low‑pass filtering, giving the drums a muffled, tape‑warm feel, while a soft, detuned piano lays down jazzy unresolved chords colored with major 9ths and minor 7ths. A warm, sub‑bass line pulses softly underneath, and an optional melodic layer of a lo‑fi guitar with light reverb adds a gentle, nostalgic hook that repeats every four bars. Vinyl crackle, gentle tape hiss, and a distant café ambiance—clinking cups, low chatter—fill the background, enhancing the sense of a quiet afternoon retreat. The mix avoids bright frequencies, favoring a cozy, low‑end‑rich palette, and the track is crafted to loop infinitely, evoking a peaceful, slightly wistful mood ideal for unwinding."
+    }
+  ],
+  "meta": {
+    "total_variations_requested": 10,
+    "total_variations_returned": 10,
+    "total_batches": 5,
+    "batches_completed": 5
+  }
+}

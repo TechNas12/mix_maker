@@ -1,0 +1,33 @@
+{
+  "style_id": "cinematic",
+  "base_prompt": "Indian tantra music",
+  "complete": true,
+  "variations": [
+    {
+      "index": 1,
+      "prompt": "A slow, 62 BPM cinematic suite that begins with a delicate tanpura drone and distant sitar phrases, answered by soft, swelling strings and a wordless choir to establish a sacred, tantric atmosphere. As the piece breathes, subtle timpani rolls and low brass pulses introduce rhythmic momentum, building tension through a recurring modal motif that gradually transforms with layered woodwinds and epic percussion. The climax unleashes the full orchestral palette—soaring violins, resonant brass, choir, and booming taiko—while layered reverb and a wide stereo mix fill the space, evoking the visual grandeur of a Hans Zimmer‑style score. The narrative arc resolves with a gentle decrescendo, returning to the original Indian textures as the energy fades into silence."
+    },
+    {
+      "index": 2,
+      "prompt": "An energetic, 148 BPM cinematic action cue that opens with a driving taiko ostinato and punchy timpani, establishing a relentless rhythmic drive underpinning a bold, raga‑inspired melodic motif introduced by electric sitar and soaring violins. The thematic idea is developed through dynamic swells, with brass fanfares and choir interjections that build tension, referencing the propulsive style of John Williams’ adventure scores while retaining the spiritual essence of Indian tantra music. Layered reverb and a wide stereo image create an expansive soundscape, and even the quieter bridges maintain momentum via subtle timpani rolls and soft tabla accents, ensuring no percussion‑less texture. The piece follows a clear narrative journey—establish, build, climax, resolve—culminating in a powerful orchestral climax that transforms the motif before receding into a resonant, reverent finish."
+    },
+    {
+      "index": 3,
+      "prompt": "A slow, 68 BPM cinematic tableau that opens with a resonant tanpura drone and distant bells, evoking the quiet preparation of a tantra ritual at dawn. A solo sitar introduces a haunting, modal motif that is answered by low strings and a soft timpani roll, establishing tension as woodwinds weave in microtonal glissandos. The piece builds through layered strings and a rising brass choir, while a faint Sanskrit chant emerges, growing in intensity until the full orchestra — strings, brass, woodwinds, choir, and epic percussion — swells into a powerful climax that mirrors the ritual’s peak energy. Wide stereo reverb spreads the sound like incense in a vast hall, and the thematic motif transforms, shifting from minor to a luminous major mode as the resolution arrives with a gentle fade of the drone and a final, reverberant gong. Inspired by the emotive grandeur of Hans Zimmer and the modal color of John Williams, the track maintains rhythmic momentum even in its quietest moments through subtle taiko pulses."
+    },
+    {
+      "index": 4,
+      "prompt": "At a driving 145 BPM, this cinematic piece launches with a pulsating taiko ostinato and tight, rhythmic tabla patterns that lay the foundation for an intense tantra‑inspired chase. Aggressive staccato strings and syncopated brass hits introduce a bold, repeating motif derived from a traditional raga, which is tossed between the violins and French horns as the energy builds. Layered woodwinds add scintillating trills, while a low male choir chants a mantra in unison, rising in volume and intensity toward a climactic burst where the full orchestra — strings, brass, woodwinds, choir, and massive percussion — converges in a heroic, wide‑stereo swell. The dynamics follow a clear narrative arc: establish the ritual’s urgency, build through escalating rhythmic tension, climax in a thunderous, heroic release, and resolve with a gradual deceleration that leaves the tanpura drone and a solitary sitar line echoing in a spacious reverb. Echoing the propulsive drive of Ennio Morricone’s action scores and the thematic development of John Williams, the piece never loses its percussive heartbeat, ensuring rhythmic momentum even during the brief, contemplative bridge."
+    },
+    {
+      "index": 5,
+      "prompt": "A cinematic orchestral interpretation of Indian tantra music, beginning with a quiet, meditative texture of solo bansuri flute and soft pad of sustained strings, establishing a sacred atmosphere. Over a slow 70 BPM pulse, layered timpani rolls and subtle taiko provide rhythmic momentum as the theme—based on a traditional raga motif—is introduced by a solo violin and later taken up by a soaring French horn line, building tension through swelling dynamics. The piece expands into a powerful climax featuring full brass, choir chanting in Sanskrit, and epic percussion, with the tantric motif transformed and developed across the orchestra, evoking a journey from inner stillness to outward ecstasy. Wide stereo reverb and layered ambience fill the space, recalling the grandeur of Hans Zimmer’s epic scores while retaining the mystical color of Indian instrumentation. The arc resolves gently, returning to the solitary flute and fading strings as the energy dissolves into silence."
+    }
+  ],
+  "meta": {
+    "total_variations_requested": 5,
+    "total_variations_returned": 5,
+    "total_batches": 3,
+    "batches_completed": 3
+  }
+}
