@@ -12,3 +12,22 @@ dependencies = [
     "python-dotenv>=1.2.2",
     "rich>=15.0.0",
 ]
+
+[project.scripts]
+mixmaker = "src.ui.interface:run_pipeline_cli"
+
+[dependency-groups]
+dev = [
+    "hatchling>=1.29.0",
+]
+
+[tool.uv]
+package = true
+
+[tool.hatch.build.targets.wheel]
+packages  = ["src"]
+artifacts = [".env"]
+
+[build-system]
+requires      = ["hatchling"]
+build-backend = "hatchling.build"

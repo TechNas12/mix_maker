@@ -202,3 +202,36 @@ def print_save_confirmation(file_path: str) -> None:
         )
     )
     console.print()
+
+def print_stitch_confirmation(music_result: dict) -> None:
+    """
+    Print a confirmation panel showing the stitched output file path.
+
+    Args:
+        music_result (dict): Updated manifest returned by MixMaker.stitch().
+    """
+    stitched = music_result.get("stitched")
+    if not stitched:
+        return
+
+    file_path = stitched.get("file_path", "—")
+    mode      = stitched.get("mode", "—")
+    included  = stitched.get("tracks_included", 0)
+    skipped   = stitched.get("tracks_skipped", 0)
+
+    body = Text(justify="center")
+    body.append(f"\n  {SYMBOLS['success']}  Stitched output  ", style="muted")
+    body.append(f"{file_path}\n",                               style=f"bold {COLORS['primary']}")
+    body.append(
+        f"\n     Mode: {mode}  ·  {included} tracks  ·  {skipped} skipped\n",
+        style=f"dim {COLORS['muted']}"
+    )
+
+    console.print(
+        Panel(
+            body,
+            border_style = COLORS["success"],
+            padding      = (0, 2),
+        )
+    )
+    console.print()

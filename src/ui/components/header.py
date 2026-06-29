@@ -23,8 +23,8 @@ BANNER = """
 # Version & Meta
 # -------------------------------------------------------------------------
 
-APP_VERSION  = "v1.0.0"
-APP_SUBTITLE = "AI-Powered Music Prompt Generator"
+APP_VERSION  = "created by TechNas"
+APP_SUBTITLE = "AI-Powered Music Generator"
 
 # -------------------------------------------------------------------------
 # Internal Builders
@@ -122,4 +122,12 @@ def print_header(
             align="center",
         )
     )
+    console.print()
+    
+# src/ui/components/header.py — add this function
+
+def print_banner_only() -> None:
+    """Print just the ASCII banner and subtitle — before inputs are collected."""
+    console.print(_build_banner())
+    console.print(_build_subtitle())
     console.print()

@@ -1,118 +1,65 @@
-# src/ui/interface.py
-
+import asyncio
 import math
-from src.ui.theme                   import console, COLORS, SYMBOLS
-from src.ui.components.header       import print_header
-from src.ui.components.progress     import PipelineProgress
-from src.ui.components.logger       import EventLogger
-from src.ui.components.output       import print_output, print_save_confirmation
-from src.provider.llm               import LLM
-from src.utils.exception            import CustomException
-from src.utils.logger               import log
-from dotenv                         import load_dotenv
 import os
-from src.ui.components.inputs import collect_inputs
+from dotenv                             import load_dotenv
+from src.ui.theme                       import console, COLORS, SYMBOLS
+from src.ui.components.header           import print_header
+from src.ui.components.progress         import PipelineProgress
+from src.ui.components.logger           import EventLogger
+from src.ui.components.output           import print_output, print_save_confirmation
+from src.ui.components.inputs           import collect_inputs
+from src.ui.components.music_panel      import MusicPanel
+from src.provider.llm                   import LLM
+from src.provider.music_generator       import MusicGenerator
+from src.core.mix_maker                 import MixMaker
+from src.utils.exception                import CustomException
+from src.utils.logger                   import log
+from src.utils.text                     import load_text_file
+from src.utils.prompts_utils.style_retriever import get_style_by_id
+from rich.rule                          import Rule
+from pathlib                            import Path
+from datetime                           import datetime
+import time
 
 load_dotenv()
 
+
 # -------------------------------------------------------------------------
-# Monkey-patch LLM internals to emit UI events
-# -------------------------------------------------------------------------
-# The LLM class has no knowledge of the UI layer.
-# We wrap its private methods here so the UI gets notified
-# of internal events (retries, fallbacks, model switches)
-# without coupling LLM to Rich.
+# LLM patch — wired to Gemini's _generate(system_prompt, user_content)
 # -------------------------------------------------------------------------
 
 def _patch_llm(llm: LLM, logger: EventLogger) -> LLM:
-    """
-    Wrap LLM._try_generate and LLM._generate_with_fallback with UI hooks.
+    original_generate = llm._generate  # Gemini: (system_prompt, user_content)
 
-    This keeps the LLM class clean while giving the UI full visibility
-    into internal model-level events.
-
-    Args:
-        llm    (LLM):         The LLM instance to patch.
-        logger (EventLogger): The active EventLogger instance.
-
-    Returns:
-        LLM: The same instance with patched methods.
-    """
-    original_try_generate        = llm._try_generate
-    original_generate_fallback   = llm._generate_with_fallback
-
-    def patched_try_generate(model: str, messages: list):
+    def patched_generate(system_prompt: str, user_content: str):
         last_exception = None
-
-        import time
         for attempt in range(1, llm.MAX_RETRIES + 1):
             try:
-                logger.attempt(attempt, llm.MAX_RETRIES, model)
-                response = llm.client.chat.send(
-                    model       = model,
-                    messages    = messages,
-                    temperature = 0.8,
-                    max_tokens  = 4096,
-                )
-                logger.model_success(model, attempt)
-                log(f"Model '{model}' responded successfully on attempt {attempt}.")
+                logger.attempt(attempt, llm.MAX_RETRIES, llm.MODEL)
+                response = original_generate(system_prompt, user_content)
+                logger.model_success(llm.MODEL, attempt)
+                log(f"Model '{llm.MODEL}' responded on attempt {attempt}.")
                 return response
-
             except Exception as e:
                 last_exception = e
                 wait = llm.RETRY_DELAY * (2 ** (attempt - 1))
                 logger.retry(
                     attempt = attempt,
                     total   = llm.MAX_RETRIES,
-                    model   = model,
+                    model   = llm.MODEL,
                     error   = str(e),
                     wait    = wait,
                 )
-                log(
-                    f"Attempt {attempt} failed for model '{model}': {e}. "
-                    f"Retrying in {wait}s...",
-                    level="warning"
-                )
-                time.sleep(wait)
+                import time as t
+                t.sleep(wait)
 
         raise CustomException(
             error   = last_exception,
-            message = f"Model '{model}' failed after {llm.MAX_RETRIES} retries.",
-            context = {"model": model, "max_retries": llm.MAX_RETRIES}
+            message = f"Model '{llm.MODEL}' failed after {llm.MAX_RETRIES} retries.",
+            context = {"model": llm.MODEL, "max_retries": llm.MAX_RETRIES}
         )
 
-    def patched_generate_fallback(messages: list):
-        primary_error = None
-        try:
-            return patched_try_generate(llm.PRIMARY_MODEL, messages)
-        except CustomException as e:
-            primary_error = e
-            logger.model_fallback(llm.PRIMARY_MODEL, llm.FALLBACK_MODEL)
-            log(
-                f"Primary model exhausted retries. Switching to fallback.",
-                level="error"
-            )
-
-        try:
-            return patched_try_generate(llm.FALLBACK_MODEL, messages)
-        except CustomException as fallback_error:
-            log(
-                f"Fallback model also failed.",
-                level="critical"
-            )
-            raise CustomException(
-                error   = fallback_error,
-                message = "Both primary and fallback models failed.",
-                context = {
-                    "primary_model":  llm.PRIMARY_MODEL,
-                    "fallback_model": llm.FALLBACK_MODEL,
-                    "primary_error":  str(primary_error),
-                    "fallback_error": str(fallback_error),
-                }
-            )
-
-    llm._try_generate             = patched_try_generate
-    llm._generate_with_fallback   = patched_generate_fallback
+    llm._generate = patched_generate
     return llm
 
 
@@ -125,51 +72,21 @@ def run_pipeline(
     style_id    : str,
     n           : int = 5,
 ) -> None:
-    """
-    Run the full Mix Maker pipeline with a live terminal UI.
-
-    Flow:
-        1. Print header
-        2. Patch LLM with UI hooks
-        3. Load shared resources (system prompt + style)
-        4. Run batch loop with live progress + event logs
-        5. Stitch and re-index all variations
-        6. Print output panel
-        7. Save to disk + print save confirmation
-
-    Args:
-        user_prompt (str): Music description prompt from the user.
-        style_id    (str): Style identifier e.g. 'cinematic'.
-        n           (int): Total variations to generate. Default: 5.
-    """
     llm    = LLM(os.getenv("LLM_KEY"))
     logger = EventLogger()
 
-    # ── Header ────────────────────────────────────────────────────────────
-    print_header(
-        primary_model  = LLM.PRIMARY_MODEL,
-        fallback_model = LLM.FALLBACK_MODEL,
-        style_id       = style_id,
-        user_prompt    = user_prompt,
-        n              = n,
-    )
-
-    # ── Patch LLM with UI hooks ───────────────────────────────────────────
+    # ── Patch LLM ─────────────────────────────────────────────────────────
     llm = _patch_llm(llm, logger)
 
     # ── Load shared resources ─────────────────────────────────────────────
-    from src.utils.text                         import load_text_file
-    from src.utils.prompts_utils.style_retriever import get_style_by_id
-
     try:
         system_prompt = load_text_file(llm.system_prompt_file_path)
         style         = get_style_by_id(style_id, llm.style_prompts_file_path)
     except CustomException as e:
         logger.pipeline_failed(reason=str(e.original_error))
-        console.print_exception()
         return
 
-    # ── Batch loop ────────────────────────────────────────────────────────
+    # ── STAGE 1 — LLM batch loop ──────────────────────────────────────────
     total_batches  = math.ceil(n / LLM.BATCH_SIZE)
     all_variations = []
     batches_done   = 0
@@ -177,7 +94,7 @@ def run_pipeline(
     logger.pipeline_start(n=n, total_batches=total_batches)
 
     with PipelineProgress(
-        total_batches   = total_batches,
+        total_batches    = total_batches,
         total_variations = n,
     ) as progress:
 
@@ -192,7 +109,6 @@ def run_pipeline(
                 size        = this_batch_size,
                 start_index = start_index,
             )
-
             progress.set_description(
                 f"Batch {batch_num + 1}/{total_batches} — "
                 f"requesting {this_batch_size} variation(s)..."
@@ -206,20 +122,18 @@ def run_pipeline(
                     batch_size    = this_batch_size,
                     start_index   = start_index,
                 )
-
                 all_variations.extend(batch_variations)
                 batches_done += 1
 
                 logger.batch_success(
                     batch_num = batch_num + 1,
                     received  = len(batch_variations),
-                    model     = llm.PRIMARY_MODEL,
+                    model     = llm.MODEL,
                 )
-
                 progress.advance(
                     batch_num  = batch_num + 1,
                     batch_size = len(batch_variations),
-                    model      = llm.PRIMARY_MODEL,
+                    model      = llm.MODEL,
                 )
 
             except CustomException as e:
@@ -227,14 +141,8 @@ def run_pipeline(
                     batch_num = batch_num + 1,
                     reason    = str(e.original_error),
                 )
-                log(
-                    f"Batch {batch_num + 1} failed. "
-                    f"Collected {len(all_variations)}/{n} so far.",
-                    level="error"
-                )
                 break
 
-        # ── Mark progress final state ─────────────────────────────────────
         complete = len(all_variations) == n
         if complete:
             progress.complete()
@@ -243,12 +151,11 @@ def run_pipeline(
         else:
             progress.fail(reason="No variations collected")
 
-    # ── Re-index cleanly 1 → n ────────────────────────────────────────────
-    for i, variation in enumerate(all_variations, start=1):
-        variation["index"] = i
+    # Re-index
+    for i, v in enumerate(all_variations, start=1):
+        v["index"] = i
 
-    # ── Assemble final result ─────────────────────────────────────────────
-    result = {
+    llm_result = {
         "style_id":    style_id,
         "base_prompt": user_prompt,
         "complete":    complete,
@@ -261,39 +168,178 @@ def run_pipeline(
         }
     }
 
-    # ── Log pipeline outcome ──────────────────────────────────────────────
     if complete:
         logger.pipeline_complete(total=len(all_variations))
     else:
-        logger.pipeline_partial(
-            collected = len(all_variations),
-            requested = n,
+        logger.pipeline_partial(collected=len(all_variations), requested=n)
+
+    print_output(llm_result)
+    file_path = llm.save_response(llm_result)
+    print_save_confirmation(str(file_path))
+
+    if not all_variations:
+        logger.pipeline_failed(reason="No variations to generate audio for.")
+        return
+
+    # ── STAGE 2 — Music Generation ────────────────────────────────────────
+    console.print()
+    console.print(
+        Rule(
+            title  = f"[primary] {SYMBOLS['info']} AUDIO GENERATION [/]",
+            style  = COLORS["primary"],
+            align  = "center",
+        )
+    )
+    console.print()
+
+    generator   = MusicGenerator(api_key=os.getenv("MUSIC_KEY"))
+    music_panel = MusicPanel(variations=all_variations)
+    music_result = None
+
+    # ── Key fix: run async generation OUTSIDE the Live context ────────────
+    # Rich's Live uses the event loop internally on Windows; asyncio.run()
+    # inside a Live block causes CancelledError / KeyboardInterrupt.
+    # Solution: collect results first via a plain asyncio loop, feed them
+    # into the panel via on_complete, then open Live only for display.
+
+    # Collected results buffer — on_complete stores here before Live starts
+    _pending_results: list[dict] = []
+
+    def _buffered_on_complete(result: dict) -> None:
+        """Collect results before the Live panel is open."""
+        _pending_results.append(result)
+
+    run_id     = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    output_dir = Path(generator.ARTIFACTS_DIR) / run_id
+
+    try:
+        # Run async generation fully before entering Live
+        raw_results: list[dict] = asyncio.run(
+            generator._generate_all_async(
+                variations  = all_variations,
+                output_dir  = output_dir,
+                on_complete = _buffered_on_complete,
+            )
+        )
+    except CustomException as e:
+        log(f"Music generation failed: {e}", level="critical")
+        console.print(
+            f"\n  [error]{SYMBOLS['error']}  "
+            f"Audio generation failed: {e.original_error}[/]\n"
+        )
+        return
+    except Exception as e:
+        log(f"Music generation failed unexpectedly: {e}", level="critical")
+        console.print(
+            f"\n  [error]{SYMBOLS['error']}  "
+            f"Audio generation failed: {e}[/]\n"
+        )
+        return
+
+    # Build music_result manifest (mirrors MusicGenerator.generate() output)
+    succeeded    = sum(1 for r in raw_results if r["status"] == "success")
+    failed       = len(raw_results) - succeeded
+    music_result = {
+        "run_id":      run_id,
+        "style_id":    llm_result.get("style_id", ""),
+        "base_prompt": llm_result.get("base_prompt", ""),
+        "output_dir":  str(output_dir),
+        "complete":    failed == 0,
+        "results":     raw_results,
+        "meta": {
+            "total":     len(raw_results),
+            "succeeded": succeeded,
+            "failed":    failed,
+        }
+    }
+
+    # Now open the Live panel and replay all buffered results instantly
+    with music_panel:
+        for result in _pending_results:
+            music_panel.on_variation_complete(result)
+
+    # ── STAGE 3 — Stitching ───────────────────────────────────────────────
+    console.print()
+    console.print(
+        Rule(
+            title  = f"[primary] {SYMBOLS['info']} STITCHING [/]",
+            style  = COLORS["primary"],
+            align  = "center",
+        )
+    )
+    console.print()
+
+    try:
+        mix_maker    = MixMaker()
+        final_result = mix_maker.stitch(
+            music_result = music_result,
+            crossfade_ms = 3000,
+            gap_ms       = 800,
         )
 
-    # ── Output panel ──────────────────────────────────────────────────────
-    print_output(result)
+        music_panel.add_stitch_result(final_result)
 
-    # ── Save ──────────────────────────────────────────────────────────────
-    if all_variations:
-        file_path = llm.save_response(result)
-        print_save_confirmation(str(file_path))
+        from src.ui.components.output import print_stitch_confirmation
+        print_stitch_confirmation(final_result)
+
+        log(f"Stitching complete → {final_result['stitched']['file_path']}")
+
+    except CustomException as e:
+        log(f"Stitching failed: {e}", level="error")
+        console.print(
+            f"\n  [error]{SYMBOLS['error']}  "
+            f"Stitching failed: {e.original_error}[/]\n"
+        )
 
 
 # -------------------------------------------------------------------------
 # Entry Point
 # -------------------------------------------------------------------------
 
-# replace the bottom of interface.py
+def run_pipeline_cli():
+    from dotenv import load_dotenv
+    import os
 
-if __name__ == "__main__":
-    from src.provider.llm import LLM
+    _search_paths = [
+        Path.cwd() / ".env",
+        Path(__file__).parent.parent.parent / ".env",
+        Path.home() / ".mixmaker.env",
+    ]
 
+    print("\n[DEBUG] Searching for .env in:")
+    for p in _search_paths:
+        print(f"  {'✔' if p.exists() else '✘'}  {p}")
+
+    loaded = False
+    for env_path in _search_paths:
+        if env_path.exists():
+            load_dotenv(env_path)
+            loaded = True
+            print(f"[DEBUG] Loaded from: {env_path}")
+            break
+
+    if not loaded:
+        load_dotenv()
+        print("[DEBUG] Fallback load_dotenv() used")
+
+    print(f"[DEBUG] LLM_KEY loaded:   {'YES' if os.getenv('LLM_KEY')   else 'NO'}")
+    print(f"[DEBUG] MUSIC_KEY loaded: {'YES' if os.getenv('MUSIC_KEY') else 'NO'}\n")
+
+    from src.ui.components.header import print_banner_only
+
+    print_banner_only()
+
+    # Use class-level path constant — no dummy instantiation needed
     user_prompt, style_id, n = collect_inputs(
-        style_prompts_file = LLM(os.getenv("LLM_KEY")).style_prompts_file_path
+        style_prompts_file=LLM.STYLE_PROMPTS_PATH
     )
 
     run_pipeline(
-        user_prompt = user_prompt,
-        style_id    = style_id,
-        n           = n,
+        user_prompt=user_prompt,
+        style_id=style_id,
+        n=n,
     )
+
+
+if __name__ == "__main__":
+    run_pipeline_cli()

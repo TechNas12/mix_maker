@@ -1,7 +1,13 @@
-from src.utils.load_json import load_json
-from src.core.mix_maker import MixMaker
+import os
+from src.provider.llm import LLM
+from dotenv import load_dotenv
+load_dotenv()
+api_key = os.getenv("GOOGLE_API_KEY")
 
-music_result = load_json("artifacts/2026-05-31_18-37-29/manifest.json")
+llm = LLM(api_key)
 
-mix_maker = MixMaker()
-mix_maker.stitch_and_display(music_result)
+prompt = ("Deep lord of the rings inspired music")
+n = 5
+style_id = "ambient"
+
+response = llm.generate_variations(prompt, style_id)
